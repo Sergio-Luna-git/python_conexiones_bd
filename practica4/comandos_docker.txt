@@ -1,0 +1,30 @@
+
+COMANDOS DOCKER
+Ver los contenedores del equipo:
+        docker ps -a
+
+Arrancar contenedor:
+        docker start {contenedor}
+
+Arrancar coontenedor desde la carpeta:
+        docker compose up -d
+
+with open(archivo) -> with connectdatabase?
+
+DTO -> a una Class y a una Tabla, dice que campos de yba Clase van a una tabla u otra
+
+
+Copiar archivo de fuera de docker:
+docker cp ./schema_eployees.sql add-dbms:/srv
+
+Ejecutar en el contenedor iniciando sesion y le pasa el fichero de base ded atos para crearla:
+docker exec add-dbms mysql -u root -pdbrootpass < schema_employees.sqlç
+
+Conectarse al contenedor:
+docker exec -it add-dbms bash
+
+Conectarse al servidor de base de datos:
+mysql -u root -pdbrootpass
+
+Mostrar bases de datos del servidor:
+mysql -u root -pdbrootpass
