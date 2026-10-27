@@ -1,0 +1,7 @@
+1) bbdd.py solo contendrá ConexionDB
+2) separar repositorios en archivos diferentes -> RepositorioEmpleado 1 archivo, RepositorioDepartamento otro archivo etc
+3) Llamar desde el main a cada una de las funciones que pide
+:D
+FILMREPOSITORY -> consultas para peliculas
+CLIENTREPOSITORY -> repositorio para clientes
+... etcétera: carpeta repositorios con los repositorios dentro, ubicada en la raíz del proyecto

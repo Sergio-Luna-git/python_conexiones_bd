@@ -1,0 +1,12 @@
+# Ignorar todo lo que haya en la raíz del repositorio
+/*
+
+# ...excepto la carpeta practica4 y este mismo archivo
+!/practica4/
+!/.gitignore
+
+# Dentro de practica4, ignorar basura del IDE, caché y contraseñas
+.idea/
+__pycache__/
+*.pyc
+.env
