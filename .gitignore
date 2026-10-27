@@ -10,3 +10,5 @@
 __pycache__/
 *.pyc
 .env
+test_db-master/
+sakila-mv-*.sql
