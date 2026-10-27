@@ -1,12 +1,8 @@
 import os
 
 from dotenv import load_dotenv
+from bbdd import ConexionDB
 
-
-from bbdd import (
-    ConexionBD,
-
-)
 load_dotenv()
 
 def paso(texto: str) -> None:
@@ -14,9 +10,9 @@ def paso(texto: str) -> None:
 
 def main() -> None:
     paso("Intentar conexión con la Base de Datos")
-    with ConexionBD(DB_CONFIG) as cnx:
+    with ConexionDB() as cnx:
         print(f"[] - Conexión establecida: {cnx.is_connected()}")
 
 
-#if __name__ == "__main__":
- #   main()
+if __name__ == "__main__":
+    main()

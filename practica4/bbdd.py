@@ -10,13 +10,12 @@ Datos Relacionales para la explicación detallada de cada clase.
 from __future__ import annotations
 
 import os
+
 from dataclasses import dataclass
 from datetime import date
-
 import mysql.connector
 from mysql.connector import errorcode
 
-from demo_tema2 import DB_CONFIG
 
 FECHA_SIN_FIN = date(9999, 1, 1)  # convención usada en dept_emp y salaries
 
@@ -25,7 +24,7 @@ FECHA_SIN_FIN = date(9999, 1, 1)  # convención usada en dept_emp y salaries
 # ---------------------------------------------------------------------------
 # Conexión
 # ---------------------------------------------------------------------------
-class ConexionBD:
+class ConexionDB:
     """Gestor de contexto para una conexión MySQL.
 
     Uso:
@@ -40,8 +39,8 @@ class ConexionBD:
         "password": os.getenv("DB_PASSWORD", "dbrootpass"),
         "database": os.getenv("DB_NAME", "sakila")
     }
-    def __init__(self, config: dict):
-        self.config = DB_CONFIG
+    def __init__(self, config: dict = None):
+        self.config = config if config is not None else self.DB_CONFIG
         self.cnx = None
 
     def __enter__(self) -> mysql.connector.MySQLConnection:
@@ -217,3 +216,5 @@ class RepositorioFunciones:
             valor = cursor.fetchone()[0]
             cursor.close()
             return valor
+
+
