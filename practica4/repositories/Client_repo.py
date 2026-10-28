@@ -23,3 +23,24 @@ class Client_repo:
             cursor.close()
         return resultado
 
+    #6. Obtener los pagos realizados por cada cliente en sus alquileres (payment, rental, customer).
+    def mostra_pago_cliente_rental(self):
+        consulta = (
+            "select p.payment_id, p.amount as 'Total:', r.rental_id"
+            "from payment p"
+            "join customer_id c"
+            "on p.customer_id = c.customer_id"
+            "join rental rç"
+            "on c.customer_id = r.customer_id"
+        )
+
+        resultado = []
+
+        with ConexionDB() as cnx:
+            cursor = cnx.cursor()
+            cursor.execute(consulta)
+            for row in consulta:
+                resultado.append(row)
+            cursor.close()
+        return resultado
+
