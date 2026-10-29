@@ -36,9 +36,9 @@ class Film_repo:
 #4. Mostrar el título de las películas junto con el idioma en que están disponibles (film + language)
     def mostrar_tit_idiom(self):
         consulta = (
-            "select f.titile, l.name "
+            "select f.title, l.name "
             "from film f "
-            "inner join langauge l "
+            "inner join language l "
             "on f.language_id = l.language_id "
         )
 
@@ -46,7 +46,7 @@ class Film_repo:
         with ConexionDB () as cnx:
             cursor = cnx.cursor()
             cursor.execute(consulta)
-            for film in consulta:
+            for film in cursor:
                 resultado.append(film)
             cursor.close()
         return resultado

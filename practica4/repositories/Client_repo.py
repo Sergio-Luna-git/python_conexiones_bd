@@ -18,7 +18,7 @@ class Client_repo:
         with ConexionDB() as cnx:
             cursor = cnx.cursor()
             cursor.execute(consulta)
-            for row in consulta:
+            for row in cursor:
                 resultado.append(row)
             cursor.close()
         return resultado
@@ -28,9 +28,9 @@ class Client_repo:
         consulta = (
             "select p.payment_id, p.amount as 'Total:', r.rental_id"
             "from payment p"
-            "join customer_id c"
+            "join customer c"
             "on p.customer_id = c.customer_id"
-            "join rental rç"
+            "join rental r"
             "on c.customer_id = r.customer_id"
         )
 
@@ -39,7 +39,7 @@ class Client_repo:
         with ConexionDB() as cnx:
             cursor = cnx.cursor()
             cursor.execute(consulta)
-            for row in consulta:
+            for row in cursor:
                 resultado.append(row)
             cursor.close()
         return resultado
